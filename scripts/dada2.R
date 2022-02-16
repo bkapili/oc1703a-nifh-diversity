@@ -62,12 +62,13 @@ names(filtFs) <- sampleNames
 names(filtRs) <- sampleNames
 
 # Read in optimal trim positions and maxEE
-figaroOut <- fromJSON("./figaro/trimParameters.json", flatten = TRUE)
+#figaroOut <- fromJSON("./figaro/trimParameters.json", flatten = TRUE)
 
-trimParams <- figaroOut %>%
-  filter(row_number() == 1) %>%
-  pull(trimPosition) %>%
-  unlist
+#trimParams <- figaroOut %>%
+#  filter(row_number() == 1) %>%
+#  pull(trimPosition) %>%
+#  unlist
+trimParams <- c(210, 190)
 
 # Trim and quality-filter
 out <- filterAndTrim(fnFs, filtFs, fnRs, filtRs, truncLen = c(trimParams[1], trimParams[2]),
