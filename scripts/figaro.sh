@@ -34,7 +34,8 @@ for f in `cat sample_names.txt`; do
   grep 'max\|min' >> ./log/prinseq_log.txt
 
   prinseq-lite.pl -fastq r2.fastq -stats_len |\
-  grep 'max\|min' >> ./log/prinseq_log.txt; done
+  grep 'max\|min' >> ./log/prinseq_log.txt
+done
 
 # Remove temp files
 rm r1.fastq
@@ -65,4 +66,4 @@ figaro.py \
   -a 370 \
   -f 1 \
   -r 1 \
-  -m 18
+  -m 28
