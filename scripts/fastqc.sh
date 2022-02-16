@@ -10,8 +10,8 @@
 # Arguments:
 #   * Name of sequencing run ("dekas12"" or "dekas13")
 #
-# To run on dekas12: bash cutadapt.sh dekas12
-# To run on dekas13: bash cutadapt.sh dekas13
+# To run on dekas12: bash fastqc.sh dekas12
+# To run on dekas13: bash fastqc.sh dekas13
 # -------------------------------------------------------------
 
 # Read argument
