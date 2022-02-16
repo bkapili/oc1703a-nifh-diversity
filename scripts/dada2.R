@@ -74,15 +74,14 @@ out <- filterAndTrim(fnFs, filtFs, fnRs, filtRs, truncLen = c(trimParams[1], tri
                      maxN = 0, maxEE = c(2, 2), truncQ = 2,
                      rm.phix = TRUE, compress = TRUE, multithread = FALSE)
 
-
 ### Model error rates
 # Dereplicate reads
-derepFs <- derepFastq(filtFs, verbose=TRUE)
-derepRs <- derepFastq(filtRs, verbose=TRUE)
+derepFs <- derepFastq(filtFs, verbose = TRUE)
+derepRs <- derepFastq(filtRs, verbose = TRUE)
 
 # Learn error rates
-errF <- learnErrors(derepFs, multithread = TRUE)
-errR <- learnErrors(derepRs, multithread = TRUE)
+errF <- learnErrors(derepFs, multithread = TRUE, verbose = TRUE)
+errR <- learnErrors(derepRs, multithread = TRUE, verbose = TRUE)
 
 # Export PDF of learned errors
 dir.create("supplemental")
@@ -91,15 +90,15 @@ pErrR <- plotErrors(errR, nominalQ = TRUE)
 
 ggsave(filename = "./supplemental/learned_errors_F.pdf", plot = pErrF,
        device = "pdf", units = "cm", width = 35, height = 20,
-       dpi = 300, useDingbats=FALSE)
+       dpi = 300, useDingbats = FALSE)
 ggsave(filename = "./supplemental/learned_errors_R.pdf", plot = pErrR,
        device = "pdf", units = "cm", width = 35, height = 20,
-       dpi = 300, useDingbats=FALSE)
+       dpi = 300, useDingbats = FALSE)
 
 
 ### Infer ASVs
-dadaFs <- dada(derepFs, err = errF, multithread = TRUE, pool = TRUE, MIN_HAMMING = 1)
-dadaRs <- dada(derepRs, err = errR, multithread = TRUE, pool = TRUE, MIN_HAMMING = 1)
+dadaFs <- dada(derepFs, err = errF, multithread = TRUE, pool = FALSE)
+dadaRs <- dada(derepRs, err = errR, multithread = TRUE, pool = FALSE)
 
 
 ### Create and filter ASV table
