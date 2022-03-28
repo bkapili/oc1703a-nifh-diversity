@@ -17,6 +17,13 @@
 #   * Updated log of per-sample read tracking after each step
 #   * Log of total ASV tracking after each step
 #
+# Run as:
+#   Rscript dada2.R dekas12 210 190 330 370
+#   Rscript dada2.R dekas13 220 190 330 370
+#   Rscript dada2.R dekas01 220 180 368 378
+#   Rscript dada2.R dekas02 220 180 368 378
+#   Rscript dada2.R dekas03 220 180 368 378
+#
 # Notes: Portions of code adapted from DADA2 tutorial (v.1.16)
 # (https://benjjneb.github.io/dada2/tutorial.html)
 # -------------------------------------------------------------
@@ -42,8 +49,14 @@ if (any(installedBioPackages == FALSE)) {
 # Load packages
 lapply(c(cranPackages, biocPackages), library, character.only = TRUE)
 
-### Set working directory
-runName <- commandArgs(trailingOnly = TRUE)
+### Read arguments and set working directory
+# Read arguments
+args <- commandArgs(trailingOnly = TRUE)
+runName <- args[1]
+trimF <- args[2] %>% as.integer
+trimR <- args[3] %>% as.integer
+filtMin <- args[4] %>% as.integer
+filtMax <- args[5] %>% as.integer
 setwd(paste0("../data/", runName))
 
 ### Trim and quality-filter reads
@@ -51,6 +64,7 @@ setwd(paste0("../data/", runName))
 fnFs <- list.files("./cutadapt", pattern = "_L001_R1_001.fastq", full.names = TRUE) %>% sort
 fnRs <- list.files("./cutadapt", pattern = "_L001_R2_001.fastq", full.names = TRUE) %>% sort
 sampleNames <- sapply(strsplit(basename(fnFs), "-CUTADAPT"), `[`, 1)
+
 
 # Create directory for filtered reads
 dir.create("filtered")
@@ -68,10 +82,9 @@ names(filtRs) <- sampleNames
 #  filter(row_number() == 1) %>%
 #  pull(trimPosition) %>%
 #  unlist
-trimParams <- c(210, 190)
 
 # Trim and quality-filter
-out <- filterAndTrim(fnFs, filtFs, fnRs, filtRs, truncLen = c(trimParams[1], trimParams[2]),
+out <- filterAndTrim(fnFs, filtFs, fnRs, filtRs, truncLen = c(trimF, trimR),
                      maxN = 0, maxEE = c(2, 2), truncQ = 2,
                      rm.phix = TRUE, compress = TRUE, multithread = FALSE)
 
@@ -81,8 +94,9 @@ derepFs <- derepFastq(filtFs, verbose = TRUE)
 derepRs <- derepFastq(filtRs, verbose = TRUE)
 
 # Learn error rates
-errF <- learnErrors(derepFs, multithread = TRUE, verbose = TRUE)
-errR <- learnErrors(derepRs, multithread = TRUE, verbose = TRUE)
+set.seed(144357)
+errF <- learnErrors(derepFs, randomize = TRUE, multithread = TRUE, verbose = TRUE)
+errR <- learnErrors(derepRs, randomize = TRUE, multithread = TRUE, verbose = TRUE)
 
 # Export PDF of learned errors
 dir.create("supplemental")
@@ -111,7 +125,7 @@ rawSeqtab <- makeSequenceTable(mergers)
 
 # Remove sequences too short or too long
 table(nchar(getSequences(rawSeqtab)))
-lenFiltSeqtab <- rawSeqtab[, nchar(colnames(rawSeqtab)) %in% seq(330, 370)]
+lenFiltSeqtab <- rawSeqtab[, nchar(colnames(rawSeqtab)) %in% seq(filtMin, filtMax)]
 
 # Remove bimeras
 chimFiltSeqtab <- removeBimeraDenovo(lenFiltSeqtab, method = "consensus",
@@ -160,7 +174,7 @@ write.csv(asvTrack, file = "./supplemental/asv_retention.csv",
 
 ### Create phyloseq object
 # Import sample metadata
-sampMetadata <- read.csv(file = paste0("../SampleID_ExperimentID_", runName, ".csv"),
+sampMetadata <- read.csv(file = paste0("./SampleID_metadata_", runName, ".csv"),
                          header = TRUE,
                          row.names = 1)
 
@@ -171,11 +185,6 @@ colnames(asvSeqtab) <- paste0("ASV", 1:ncol(asvSeqtab))
 # Format sequences for refseq class
 seqs <- colnames(chimFiltSeqtab) %>% DNAStringSet()
 names(seqs) <- paste0("ASV", 1:length(seqs))
-
-# Format sample metadata for sample_data class
-sampMetadata <- sampMetadata %>%
-  separate(ExperimentID, sep = "-", c("project", "depth", "deployment",
-                                      "core", "horizon", "nucleic_acid", "replicate", "gene"))
 
 # Build and save phyloseq object
 psRaw <- phyloseq(otu_table(asvSeqtab, taxa_are_rows = FALSE),  
