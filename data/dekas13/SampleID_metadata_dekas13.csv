@@ -1,0 +1,59 @@
+﻿SampleID,project,sample_type,site_depth_mbss,deployment,core,horizon_depth_cmbsf,mean_horizon_depth,nucl_acid,pcr_replicate,extraction_replicate,gene
+DL13-AT36-0114-EP,AT36,Sample,New England Seep 3,A,1,6cm9cm,7.5,cDNA,1,1,nifH
+DL13-AT36-0115-EP,AT36,Sample,Shallop Canyon West,A,7,12cm15cm,13.5,cDNA,1,1,nifH
+DL13-AT36-0213-EP,AT36,Sample,NewEnglandSeep3,I,10,12cm15cm,13.5,cDNA,1,1,nifH
+DL13-AT36-0214-EP,AT36,Sample,New England Seep 3,A,1,9cm12cm,10.5,cDNA,1,1,nifH
+DL13-AT36-0215-EP,AT36,Sample,Veatch Canyon 1 and 2,A,2,0cm3cm,1.5,cDNA,1,1,nifH
+DL13-AT36-0314-EP,AT36,Sample,New England Seep 3,A,1,12cm15cm,13.5,cDNA,1,1,nifH
+DL13-AT36-0315-EP,AT36,Sample,Veatch Canyon 1 and 2,A,8,3cm6cm,4.5,cDNA,1,1,nifH
+DL13-AT36-0414-EP,AT36,Sample,New England Seep 3,A,1,15+cm,NA,cDNA,1,1,nifH
+DL13-AT36-0415-EP,AT36,Sample,New England Seep 3,A,9,0cm3cm,1.5,RNA,1,1,nifH
+DL13-AT36-0514-EP,AT36,Sample,New England Seep 3,A,9,0cm3cm,1.5,cDNA,1,1,nifH
+DL13-AT36-0515-EP,AT36,Sample,New England Seep 3,A,9,12cm15cm,13.5,RNA,1,1,nifH
+DL13-AT36-0614-EP,AT36,Sample,New England Seep 3,A,9,12cm15cm,13.5,cDNA,1,1,nifH
+DL13-AT36-0615-EP,AT36,Sample,New England Seep 3,A,9,15+cm,NA,RNA,1,1,nifH
+DL13-AT36-0714-EP,AT36,Sample,New England Seep 3,A,9,15+cm,NA,cDNA,1,1,nifH
+DL13-AT36-0715-EP,AT36,Sample,New England Seep 3,I,10,12cm15cm,13.5,RNA,1,1,nifH
+DL13-AT36-0815-EP,AT36,Sample,New England Seep 3,A,1,9cm12cm,10.5,cDNA,2,1,nifH
+DL13-AT36-0914-EP,AT36,Sample,Shallop Canyon East,A,5,0cm3cm,1.5,cDNA,1,1,nifH
+DL13-AT36-0915-EP,AT36,Sample,New England Seep 3,A,1,15+cm,NA,cDNA,2,1,nifH
+DL13-AT36-1014-EP,AT36,Sample,Shallop Canyon East,A,5,3cm6cm,4.5,cDNA,1,1,nifH
+DL13-AT36-1015-EP,AT36,Sample,Shallop Canyon East,A,5,3cm6cm,4.5,cDNA,2,1,nifH
+DL13-AT36-1114-EP,AT36,Sample,Shallop Canyon West,A,7,0cm3cm,1.5,cDNA,1,1,nifH
+DL13-AT36-1115-EP,AT36,Sample,Shallop Canyon West,A,7,6cm9cm,7.5,cDNA,2,1,nifH
+DL13-AT36-1214-EP,AT36,Sample,Shallop Canyon West,A,7,3cm6cm,4.5,cDNA,1,1,nifH
+DL13-AT36-1215-EP,AT36,Sample,Shallop Canyon West,A,7,12cm15cm,13.5,cDNA,2,1,nifH
+DL13-AT36-1314-EP,AT36,Sample,Shallop Canyon West,A,7,6cm9cm,7.5,cDNA,1,1,nifH
+DL13-AT36-1315-EP,AT36,Sample,Veatch Canyon 1 and 2,A,2,0cm3cm,1.5,cDNA,2,1,nifH
+DL13-AT36-1513-EP,AT36,Sample,New England Seep 3,I,10,12cm15cm,13.5,RNA,1,1,nifH
+DL13-AT36-1613-EP,AT36,Sample,New England Seep 3,A,1,3cm6cm,4.5,cDNA,1,1,nifH
+DL13-AT36-1614-EP,AT36,Sample,Shallop Canyon West,A,7,9cm12cm,10.5,cDNA,1,1,nifH
+DL13-AT36-1615-EP,AT36,Sample,New England Seep 3,A,1,3cm6cm,4.5,RNA,1,1,nifH
+DL13-BLAN-1313-EP,OC1703A,Blank,NA,NA,NA,NA,NA,NA,NA,1,nifH
+DL13-BLAN-1414-EP,OC1703A,Blank,TD5,NA,NA,NA,NA,NA,NA,1,nifH
+DL13-BLAN-1515-EP,OC1703A,Blank,cRed2,NA,NA,NA,NA,NA,NA,1,nifH
+DL13-BLAN-1616-EP,OC1703A,Blank,RA,NA,NA,NA,NA,NA,NA,1,nifH
+DL13-MOCK-1413-EP,OC1703A,Mock,NA,NA,NA,NA,NA,NA,NA,1,nifH
+DL13-MOCK-1415-EP,OC1703A,Mock,cRed2,NA,NA,NA,NA,NA,NA,1,nifH
+DL13-MOCK-1514-EP,OC1703A,Mock,TD5,NA,NA,NA,NA,NA,NA,1,nifH
+DL13-MOCK-1516-EP,OC1703A,Mock,RA,NA,NA,NA,NA,NA,NA,1,nifH
+DL13-OC17-0113-EP,OC1703A,Sample,3500,MC04,C6,2.5cm5cm,3.75,cDNA,1,1,nifH
+DL13-OC17-0116-EP,OC1703A,Sample,100,MC01,C8,5cm10cm,7.5,cDNA,2,1,nifH
+DL13-OC17-0216-EP,OC1703A,Sample,500,MC06,C2,0cm2.5cm,1.25,cDNA,2,1,nifH
+DL13-OC17-0313-EP,OC1703A,Sample,100,MC01,C8,5cm10cm,7.5,RNA,1,1,nifH
+DL13-OC17-0413-EP,OC1703A,Sample,500,MC06,C2,0cm2.5cm,1.25,RNA,1,1,nifH
+DL13-OC17-0416-EP,OC1703A,Sample,3000,MC07,C5,2.5cm5cm,3.75,cDNA,2,1,nifH
+DL13-OC17-0513-EP,OC1703A,Sample,500,MC06,C5,5cm10cm,7.5,RNA,1,1,nifH
+DL13-OC17-0516-EP,OC1703A,Sample,3500,MC04,C6,0cm2.5cm,1.25,cDNA,2,1,nifH
+DL13-OC17-0616-EP,OC1703A,Sample,100,MC01,C8,5cm10cm,7.5,cDNA,1,1,nifH
+DL13-OC17-0713-EP,OC1703A,Sample,2500,MC05,C6,0cm2.5cm,1.25,RNA,1,1,nifH
+DL13-OC17-0716-EP,OC1703A,Sample,500,MC06,C2,0cm2.5cm,1.25,cDNA,1,1,nifH
+DL13-OC17-0813-EP,OC1703A,Sample,3000,MC07,C1,0cm2.5cm,1.25,RNA,1,1,nifH
+DL13-OC17-0816-EP,OC1703A,Sample,500,MC06,C5,5cm10cm,7.5,cDNA,1,1,nifH
+DL13-OC17-0913-EP,OC1703A,Sample,3000,MC07,C5,2.5cm5cm,3.75,RNA,1,1,nifH
+DL13-OC17-1016-EP,OC1703A,Sample,2500,MC05,C6,0cm2.5cm,1.25,cDNA,1,1,nifH
+DL13-OC17-1113-EP,OC1703A,Sample,3500,MC04,C6,0cm2.5cm,1.25,RNA,1,1,nifH
+DL13-OC17-1116-EP,OC1703A,Sample,3000,MC07,C1,0cm2.5cm,1.25,cDNA,1,1,nifH
+DL13-OC17-1213-EP,OC1703A,Sample,3500,MC04,C6,2.5cm5cm,3.75,RNA,1,1,nifH
+DL13-OC17-1216-EP,OC1703A,Sample,3000,MC07,C5,2.5cm5cm,3.75,cDNA,1,1,nifH
+DL13-OC17-1416-EP,OC1703A,Sample,3500,MC04,C6,0cm2.5cm,1.25,cDNA,1,1,nifH
